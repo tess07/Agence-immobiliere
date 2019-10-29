@@ -17,6 +17,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  * @method Property[]    findAll()
  * @method Property[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
+
 class PropertyRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
@@ -35,23 +36,24 @@ class PropertyRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-        /**
-         * @return Property[]
-         */
-        public function findLatest(): array
-        {
-            return $this->findVisibleQuery()
-                ->setMaxResults(4)
-                ->getQuery()
-                ->getResult();
+     /**
+     * @return Property[]
+     */
+     public function findLatest(): array
+     {
+         return $this->findVisibleQuery()
+              ->setMaxResults(4)
+              ->getQuery()
+              ->getResult();
         }
         
-        private function findVisibleQuery(): QueryBuilder
-        {
-            return $this->createQueryBuilder('p')
-                ->where('p.sold = false');
-        }
+     private function findVisibleQuery(): QueryBuilder
+    {
+          return $this->createQueryBuilder('p')
+              ->where('p.sold = false');
+     }
 
+        
     // /**
     //  * @return Property[] Returns an array of Property objects
     //  */
