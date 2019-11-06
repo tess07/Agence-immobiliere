@@ -1,12 +1,24 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title 'Gérer les biens' %}
+{% block title 'Tous nos biens' %}
 
 {% block body %}
    <div class="container mt-4">
    
-    <h1>Gérer les biens</h1>
+        <h1>Voir tous nos biens</h1>
+        <div class="row">
+            {% for property in properties %}
+                <div class="col-md-4">
+                {% include "property/_property.html.twig" %}
+                </div>
+                
+            {% endfor %}
+         </div>
+         <div>
+             {{ knp_pagination_render(properties) }}
+         </div>
+    </div>
 
     
 {% endblock %}
