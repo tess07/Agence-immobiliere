@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title 'Gérer les biens' %}
+{% block title 'Gérer les critères' %}
 
 {% block body %}
     <div class = "container mt-4">
-        <h1>Gérer les biens</h1>
+        <h1>Gérer les critères</h1>
 
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">
@@ -15,19 +15,19 @@
         <table class="table table-striped">
         <thead>
         <tr>
-            <th>Titre</th>
+            <th>Nom</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        {% for property in properties %}
+        {% for critere in criteres %}
         <tr>
-            <td>{{ property.title }}</td>
+            <td>{{ critere.name }}</td>
             <td>
-                <a href="{{ path('admin.property.edit', {id: property.id}) }}" class="btn btn-secondary">Editer</a>
-                <form  method="post" action="{{ path('admin.property.delete', {id: property.id}) }}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sûr ?')">
+                <a href="{{ path('admin.critere.edit', {id: critere.id}) }}" class="btn btn-secondary">Editer</a>
+                <form  method="post" action="{{ path('admin.critere.delete', {id: critere.id}) }}" style="display: inline-block" onsubmit="return confirm('Etes vous vraiment sûr ?')">
                     <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}">                   
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ critere.id) }}">                   
                     <button class="btn btn-danger">Supprimer</button>
                 </form>
             </td>
@@ -37,8 +37,9 @@
         </table>
 
         <div class="text-right">
-            <a href="{{ path('admin.property.new') }}" class="btn btn-primary">Créer un nouveau bien</a>
+            <a href="{{ path('admin.critere.new') }}" class="btn btn-primary">Créer un nouveau bien</a>
         </div>
 
     </div>
+  
 {% endblock %}

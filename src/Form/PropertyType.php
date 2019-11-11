@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Critere;
 use App\Entity\Property;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,6 +25,12 @@ class PropertyType extends AbstractType
             ->add('heat', ChoiceType::class, [
                 'choices' => $this->getChoices()
             ])
+            ->add('criteres', EntityType::class, [
+                'class'        => Critere::class,
+                'required'     => false,
+                'choice_label' => 'name',
+                'multiple'     => true
+            ])
             ->add('city')
             ->add('address')
             ->add('postal_code')
@@ -30,7 +38,7 @@ class PropertyType extends AbstractType
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureCriteres(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Property::class,
