@@ -7,3 +7,5 @@ intl composer require symfony/intl
 
 
 debug : attention ajouter use Doctrine\ORM\QueryBuilder;
+
+https://cdnjs.com/libraries/select2 pour le js et le css
