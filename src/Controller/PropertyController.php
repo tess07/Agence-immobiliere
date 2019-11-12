@@ -37,22 +37,37 @@ class PropertyController extends AbstractController
      * @Route("/biens", name="property.index")
      * @return Response
      */
-    
+
     public function index(PaginatorInterface $paginator, Request $request): Response
+<<<<<<< HEAD
     {           
                 $search = new PropertySearch();
                 $form = $this->createForm(PropertySearchType::class, $search);
                 $form->handleRequest($request);
         
+=======
+    {
+                $search = new PropertySearch();
+                $form = $this->createForm(PropertySearchType::class, $search);
+                $form->handleRequest($request);
+
+
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
                 $properties = $paginator->paginate(
                 $this->repository->findAllVisibleQuery($search),
                 $request->query->getInt('page', 1),
                 12
             );
             return $this->render('property/index.html.twig', [
+<<<<<<< HEAD
                 'current_menu'  => 'properties',
                 'properties'    => $properties,
                 'form'          => $form->createView()
+=======
+                'current_menu' => 'properties',
+                'properties'   => $properties,
+                'form'         => $form->createView()
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
          ]);
     }
 
@@ -65,17 +80,15 @@ class PropertyController extends AbstractController
     {
         if ($property->getSlug() !== $slug) {
             return $this->redirectToRoute('property.show', [
-              'id' => $property->getId(),
-              'slug' => $property->getSlug()
+              'id'      => $property->getId(),
+              'slug'    => $property->getSlug()
           ], 301);
     }
-      
+
 
         return $this->render('property/show.html.twig', [
-          'property' => $property,
-          'current_menu' => 'properties'
+          'property'        => $property,
+          'current_menu'    => 'properties'
         ]);
     }
 }
-
-

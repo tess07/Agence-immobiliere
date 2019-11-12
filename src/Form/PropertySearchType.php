@@ -2,11 +2,17 @@
 
 namespace App\Form;
 
+<<<<<<< HEAD
 use App\Entity\Critere;
 use App\Entity\PropertySearch;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+=======
+use App\Entity\PropertySearch;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
@@ -30,6 +36,7 @@ class PropertySearchType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Budget max'
                 ]
+<<<<<<< HEAD
              ])
 
              ->add('criteres', EntityType::class, [
@@ -43,6 +50,11 @@ class PropertySearchType extends AbstractType
         }
 
 
+=======
+             ]);
+        }
+
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
+=======
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
 use Symfony\Component\Validator\Constraints as Assert;
 
 class PropertySearch {
@@ -15,6 +18,7 @@ class PropertySearch {
    * @Assert\Range(min=10, max=600)
    */
   private $minSurface;
+<<<<<<< HEAD
     /**
      * @var ArrayCollection
      */
@@ -24,6 +28,9 @@ class PropertySearch {
   {
     $this->criteres = new ArrayCollection();
   }
+=======
+
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
   /**
    * Get the value of maxPrice
    *
@@ -71,6 +78,7 @@ class PropertySearch {
 
     return $this;
   }
+<<<<<<< HEAD
 
   /**
    * Get the value of criteres
@@ -95,4 +103,6 @@ class PropertySearch {
 
     return $this;
   }
+=======
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
 }

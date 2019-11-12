@@ -6,6 +6,7 @@ use Doctrine\ORM\Query;
 use App\Entity\Property;
 use App\Entity\PropertySearch;
 use Psr\Log\LoggerInterface;
+use App\Entity\PropertySearch;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -45,6 +46,7 @@ class PropertyRepository extends ServiceEntityRepository
                 ->andWhere('p.surface >= :minsurface')
                 ->setParameter('minsurface', $search->getMinSurface());
         }
+<<<<<<< HEAD
         if ($search->getCriteres()->count() > 0)  {
             $k = 0;
             foreach($search->getCriteres() as $critere) {
@@ -55,6 +57,9 @@ class PropertyRepository extends ServiceEntityRepository
             }
         }
             return $query->getQuery();
+=======
+        return $query ->getQuery();
+>>>>>>> c13ad70b078910f6019e2781f94e9a5123a6fd9e
     }
 
      /**
